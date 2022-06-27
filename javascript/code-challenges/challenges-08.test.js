@@ -110,8 +110,7 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   let regex=/\b([A-Z][a-z]+)+/g;
-  console.log('RETURNING :',regex.match(str));
-  return regex.match(str);
+  return str.match(regex)?str.match(regex):[];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,7 +120,8 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let regex= /^[A-J]/;
+  return arr.filter(city=> city.match(regex));
 };
 
 /* ------------------------------------------------------------------------------------------------
