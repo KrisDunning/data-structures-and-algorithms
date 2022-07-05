@@ -11,9 +11,8 @@ Write a function named screenForNames that takes in an array of strings and uses
 ------------------------------------------------------------------------------------------------ */
 
 const screenForNames = (arr) => {
-  let regex = /(Dr. \w+)|(Mr. \w+)|(Mrs. \w+)|(Ms. \w+)/g;
-  // console.log(arr.join());
-  return arr.join().match(regex);
+  let regex = /^((Dr)|(Mr)|(Mrs)|(Ms))\.\s\w+/;
+  return arr.filter(string=>regex.test(string));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -100,8 +99,8 @@ let starWarsData = [{
 }];
 
 let biggerThanLuke = (arr) => {
-  let lukeMass = parseInt(arr[0].mass);
-  let moreMassThanLukeArr = arr.filter(char => char.mass > lukeMass);
+  let luke = arr[0];
+  let moreMassThanLukeArr = arr.filter(char => parseInt(char.mass) > parseInt(luke.mass));
   moreMassThanLukeArr = moreMassThanLukeArr.map(char => char.name);
   return moreMassThanLukeArr.join(' - ');
 };
@@ -121,12 +120,15 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // console.log(arr.sort((a, b) => b.property - a.property));
-  // if (typeof(property)==='number')
-  return arr.sort((a, b) => b.property - a.property);
-  // else
-  //   console.log(arr.sort());
-  // return arr.sort;
+  return arr.sort((a, b) =>{
+    if(a[property] < b[property])
+      return -1;
+    else if(a[property]>b[property])
+      return 1;
+    else
+      return 0;
+  });
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,16 +168,15 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  console.log('BOARD: ', board);
   const winners = [
-    '0, 1, 2',
-    '3, 4, 5',
-    '6, 7, 8',
-    '0, 3, 6',
-    '1, 4, 7',
-    '2, 5, 8',
-    '0, 4, 8',
-    '2, 4, 6',
+    '0,1,2',
+    '3,4,5',
+    '6,7,8',
+    '0,3,6',
+    '1,4,7',
+    '2,5,8',
+    '0,4,8',
+    '2,4,6',
   ];
   let allX = [];
   let allO = [];
@@ -189,9 +190,6 @@ const detectTicTacToeWin = (board) => {
   }
   allX = allX.join();
   allO = allO.join();
-  console.log('All X: ', allX);
-  console.log('All O: ', allO);
-  // sentence.includes(word)
   let winner = false;
   winners.forEach(win => {
     if (allX.includes(win))
