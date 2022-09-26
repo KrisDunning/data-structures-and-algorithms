@@ -23,6 +23,47 @@ class LinkedList{
     this.head=node;
   }
 
+  append(newValue){
+    let current=this.head;
+    while(current.next){
+      current=current.next;
+    }
+    let node=new Node(newValue);
+    current.next=node;
+  }
+
+  insertBefore(value,newValue){
+    let current=this.head;
+    if(current.value===value){
+      this.insert(newValue);
+      return;
+    }
+    while(current.next){
+      if(current.next.value===value){
+        let holder=current.next;
+        let newNode= new Node(newValue);
+        current.next=newNode;
+        newNode.next=holder;
+        return;
+      }
+      current=current.next;
+    }
+    return ('Supplied Search Value Not Found');
+  }
+
+  insertAfter(value,newValue){
+    let current=this.head;
+    while(current){
+      if (current.value===value){
+        let newNode= new Node(newValue);
+        newNode.next=current.next;
+        current.next=newNode;
+        return;
+      }
+      current=current.next;
+    }
+  }
+
   includes(value){
     let current=this.head;
     while(current){
