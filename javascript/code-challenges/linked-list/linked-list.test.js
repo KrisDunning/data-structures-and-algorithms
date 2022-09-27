@@ -142,3 +142,53 @@ describe('Linked-List-Insert',()=>{
 
 });
 
+describe ('Kth from End of Linked List Method',()=>{
+
+  it('Where k is greater than the length of the linked list',()=>{
+    let list= new LinkedList();
+    list.insert(4);
+    list.insert(3);
+    list.insert(2);
+    list.insert(1);
+    expect(list.kthFromEnd(8)).toBeFalsy();
+  });
+
+  it('Where k and the length of the list are the same',()=>{
+    let list= new LinkedList();
+    list.insert(4);
+    list.insert(3);
+    list.insert(2);
+    list.insert(1);
+    expect(list.kthFromEnd(4)).toBeFalsy();
+  });
+
+  it('Where k is not a positive integer',()=>{
+    let list= new LinkedList();
+    list.insert(4);
+    list.insert(3);
+    list.insert(2);
+    list.insert(1);
+    expect(list.kthFromEnd(-9)).toBeFalsy();
+  });
+
+  it('Where the linked list is of a size 1',()=>{
+    let list= new LinkedList();
+    list.insert(4);
+    expect(list.kthFromEnd(0)).toBe(4);
+    expect(list.kthFromEnd(1)).toBeFalsy();
+  });
+
+  it('"Happy Path" where k is not at the end but somewhere in middle of linked list',()=>{
+    let list= new LinkedList();
+    list.insert(2);
+    list.insert(8);
+    list.insert(3);
+    list.insert(1);
+    expect(list.kthFromEnd(3)).toBe(1);
+    expect(list.kthFromEnd(2)).toBe(3);
+    expect(list.kthFromEnd(1)).toBe(8);
+    expect(list.kthFromEnd(0)).toBe(2);
+  });
+
+});
+
