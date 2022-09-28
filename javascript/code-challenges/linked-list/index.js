@@ -112,6 +112,51 @@ class LinkedList{
     }
   }
 
+  zipLists(list1,list2){
+    let zippedList = new LinkedList();
+    //validation
+    // if list 1 or 2 is empty return other list as is
+    let current1=list1.head;
+    let current2=list2.head;
+    let ableToZip1=true;
+    let ableToZip2=true;
+
+    while(ableToZip1||ableToZip2){
+      if(!zippedList.head){
+        zippedList.insert(current1.value);
+      }
+      else if(current1.value&& ableToZip1){
+        zippedList.append(current1.value);
+      }
+      if (current2.value&&ableToZip2){
+        zippedList.append(current2.value);
+      }
+      console.log('Zipped List: ',JSON.stringify(zippedList));
+      if(current1.next){
+        current1=current1.next;
+      }
+      else{
+        ableToZip1=false;
+      }
+      if(current2.next){
+        current2=current2.next;
+      }else{
+        ableToZip2=false;
+      }
+    }
+    return zippedList;
+  }
 }
 
+let list1= new LinkedList();
+let list2= new LinkedList();
+let combined= new LinkedList();
+list1.insert(2);
+list1.insert(3);
+list1.insert(1);
+list2.insert(4);
+list2.insert(9);
+list2.insert(5);
+
+console.log((combined.zipLists(list1,list2)).toString());
 module.exports = {LinkedList};
