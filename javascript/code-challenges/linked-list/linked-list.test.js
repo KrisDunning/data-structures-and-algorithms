@@ -5,6 +5,8 @@ let {LinkedList} = require ('./index');
 
 
 describe ('Linked List', ()=>{
+//create a list and add some numbers.
+
   it('Can instantiate an empty linked list', ()=>{
     let newlist = new LinkedList();
     expect(newlist).toBeInstanceOf(LinkedList);
