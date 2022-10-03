@@ -7,27 +7,6 @@ class Node{
   }
 }
 
-class LinkedList {
-  constructor(){
-    this.head = null;
-  }
-
-  add(value) {
-    const node = new Node(value);
-    if(!this.head){
-      this.head = node;
-      return;
-    }
-
-    let current = this.head;
-    while(current.next){
-      current = current.next;
-    }
-    current.next = node;
-  }
-}
-
-
 class Stack {
   constructor(){
     this.top = null;
@@ -110,32 +89,4 @@ class Queue{
 
 }
 
-// let queue = new Queue;
-// console.log('queue: ',JSON.stringify(queue));
-// queue.enqueue(1);
-// console.log('The Queue1: ',JSON.stringify(queue));
-// queue.enqueue(2);
-// console.log('The Queue2: ',JSON.stringify(queue));
-// queue.enqueue(3);
-// console.log('The Queue3: ',JSON.stringify(queue));
-// console.log('Deque(): ',queue.dequeue());
-// console.log(JSON.stringify(queue));
-// console.log('Deque(): ',queue.dequeue());
-// console.log(JSON.stringify(queue));
-// console.log(queue.isEmpty());
-// console.log('peek: ',queue.peek());
-
-// let stack= new Stack;
-// console.log (stack);
-// console.log(stack.isEmpty());
-// stack.push(1);
-// console.log(stack);
-// stack.push(2);
-// console.log(stack);
-// console.log('peek: ',stack.peek());
-// console.log('popped Value: ',stack.pop());
-// console.log(stack);
-// console.log(stack.isEmpty());
-// console.log('peek: ',stack.peek());
-
-module.exports = {LinkedList,Stack,Queue};
+module.exports = {Stack,Queue};
