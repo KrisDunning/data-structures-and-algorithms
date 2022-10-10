@@ -47,6 +47,17 @@ class BinaryTree {
     traverse(this.root);
     return result;
   }
+
+  findMax(){
+    let maxValue=null;
+    const isMax = (node) => {
+      if(node.value>maxValue) maxValue=node.value;
+      if (node.left) isMax(node.left);
+      if (node.right) isMax(node.right);
+    };
+    isMax(this.root);
+    return maxValue;
+  }
 }
 
 class BST extends BinaryTree {

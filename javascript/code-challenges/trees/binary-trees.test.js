@@ -33,6 +33,18 @@ describe('Binary Trees', () => {
     expect(tree.postOrder()).toEqual(expect.arrayContaining(['D', 'E', 'B', 'F', 'C', 'A' ]));
   });
 
+  it('Can successfully return a max value from a binary tree', () => {
+    let tree = new BinaryTree();
+    tree.root = new Node(15);
+    tree.root.left = new Node(42);
+    tree.root.right = new Node(12);
+    tree.root.left.left = new Node(35);
+    tree.root.left.right = new Node(3);
+    tree.root.right.left = new Node(9);
+    tree.root.right.left = new Node(514);
+    expect(tree.findMax()).toBe(514);
+  });
+
   it('Returns true	false for the contains method, given an existing or non-existing node value', () => {
     let bsTree = new BST();
     bsTree.add(10);
