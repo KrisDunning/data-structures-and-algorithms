@@ -37,7 +37,6 @@ class Stack {
     }
     return (this.top.value);
   }
-
 }
 
 let stack1 = new Stack;
@@ -45,22 +44,19 @@ let stack2 = new Stack;
 
 class PseudoQ {
   constructor() {
-
   }
 
-  Enqueue(value) {
+  enqueue(value) {
     let node = new StackNode(value);
     if (!stack1.top) {
       stack1.top = node;
       return stack1;
     }
-
     let current = stack1.top;
     while (current) {
       stack2.push(stack1.pop());
       current = current.next;
     }
-
     stack1.push(value);
     current = stack2.top;
     while (current) {
@@ -68,24 +64,11 @@ class PseudoQ {
       current = current.next;
     }
   }
-
-  Dequeue() {
-
+  dequeue() {
     return stack1.pop();
   }
 }
 
-let Q = new PseudoQ;
+module.exports={StackNode,Stack,PseudoQ};
 
-Q.Enqueue(5);
-Q.Enqueue(3);
-Q.Enqueue(12);
-console.log(JSON.stringify(stack1));
-console.log(Q.Dequeue());
-console.log(stack1);
-console.log(Q.Dequeue());
-console.log(stack1);
-console.log(Q.Dequeue());
-console.log(stack1);
-console.log(Q.Dequeue());
-console.log(stack1);
+
