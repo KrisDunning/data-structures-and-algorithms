@@ -31,8 +31,6 @@ class Stack {
   }
 }
 
-
-
 function validateBrackets(string){
   if(typeof(string)!=='string'||string===null){
     return (console.log('Please provide a valid string'));
@@ -51,34 +49,25 @@ function validateBrackets(string){
   let closedPop;
   let openCurrent=openStack.top;
   let closedCurrent=closedStack.top;
-  console.log('openStack: ',openStack);
-  console.log('closedStack: ',closedStack);
   if(!openCurrent||!closedCurrent){
-    return 'false';
+    return false;
   }
   while(openCurrent&&closedCurrent){
     openPop=openStack.pop();
     closedPop=closedStack.pop();
-    console.log('Open Pop: ',openPop);
-    console.log('Closed Pop: ',closedPop);
     if(openPop==='('&& closedPop===')'
       ||openPop==='{' && closedPop==='}'
       ||openPop==='[' && closedPop===']'){
       console.log('match');
     }
     else{
-      return 'false';
+      return false;
     }
     openCurrent=openCurrent.next;
     closedCurrent=closedCurrent.next;
   }
-  console.log('done with while and returning true');
-  return 'true';
+  return true;
 }
 
+module.exports = {validateBrackets};
 
-console.log(validateBrackets('['));
-console.log(validateBrackets('{}'));
-console.log(validateBrackets('(]'));
-console.log(validateBrackets('[sssdd.]'));
-console.log(validateBrackets('{({)}}'));
