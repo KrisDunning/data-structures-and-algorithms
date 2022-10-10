@@ -14,14 +14,13 @@ class AnimalShelter{
 
   enqueue(animal){
     if(animal!=='Cat' && animal!=='Dog'){
-      return (console.log(' Cat and Dog only'));
+      return (console.log('Cat and Dog only'));
     }
     let node= new Node(animal);
     if(!this.front){
       this.front=node;
       return;
     }
-
     let current=this.front;
     while(current.next){
       current=current.next;
@@ -40,8 +39,6 @@ class AnimalShelter{
       this.front=current.next;
       return dqValue;
     }
-    //check if pref exists in queue
-    //get its index and its current.next value
     let animalsIndex=0;
     let animalsNext=null;
     let dqValue=null;
@@ -70,21 +67,4 @@ class AnimalShelter{
   }
 }
 
-let shelter = new AnimalShelter;
-shelter.enqueue('Dog');
-console.log(JSON.stringify(shelter));
-shelter.enqueue('Dog');
-console.log(JSON.stringify(shelter));
-shelter.enqueue('Dog');
-console.log(JSON.stringify(shelter));
-shelter.enqueue('Cat');
-console.log(JSON.stringify(shelter));
-console.log(shelter.dequeue('Cat'));
-console.log(JSON.stringify(shelter));
-console.log(shelter.dequeue('Dog'));
-console.log(JSON.stringify(shelter));
-console.log(shelter.dequeue('Dog'));
-console.log(JSON.stringify(shelter));
-console.log(shelter.dequeue('Snake'));
-console.log(JSON.stringify(shelter));
 module.exports = {AnimalShelter};
