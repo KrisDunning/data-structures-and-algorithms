@@ -131,7 +131,6 @@ class LinkedList{
       if (current2.value&&ableToZip2){
         zippedList.append(current2.value);
       }
-      console.log('Zipped List: ',JSON.stringify(zippedList));
       if(current1.next){
         current1=current1.next;
       }
@@ -147,16 +146,4 @@ class LinkedList{
     return zippedList;
   }
 }
-
-let list1= new LinkedList();
-let list2= new LinkedList();
-let combined= new LinkedList();
-list1.insert(2);
-list1.insert(3);
-list1.insert(1);
-list2.insert(4);
-list2.insert(9);
-list2.insert(5);
-
-console.log((combined.zipLists(list1,list2)).toString());
 module.exports = {LinkedList};

@@ -1,6 +1,6 @@
 # Singly Linked List
 <!-- Short summary or background information -->
-
+Work with linked list to understand how to create, modify and navigate them.
 ## Challenge
 <!-- Description of the challenge -->
 ### Node
@@ -50,6 +50,10 @@ adds a new node with the given new value immediately before the first node that 
 arguments: value, new value
 adds a new node with the given new value immediately after the first node that has the value specified
 
+### zip lists
+Arguments: 2 linked lists
+Return: New Linked List, zipped as noted below
+Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the the zipped list.
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
@@ -72,3 +76,5 @@ list.append(value) // Adds value node to end of list
 list.insertBefore(searchValue,InsertValue) // Inserts value in node before the search value node
 
 list.insertAfter(searchValue,InsertValue) // Inserts value in node after the search value node
+
+list.zip(list1,list2) // Alternates values from list1 and list2 to create a new list and return its result.
