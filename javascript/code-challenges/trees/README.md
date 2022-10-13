@@ -2,6 +2,7 @@
 <!-- Short summary or background information -->
 Practice creating and traversing Binary trees and implement a Binary Search Tree.
 
+Added a FizzBuzz challenge when traversing a K-ary tree. Worked with Isaiah Keller on this challenge for the whiteboard and the code related to K-ary trees and fizzBuzz.
 ## Challenge
 <!-- Description of the challenge -->
 
@@ -33,6 +34,7 @@ Returns: boolean indicating whether or not the value is in the tree at least onc
 Big O should be 0(n).
 
 [findMax() WhiteBoard](CodeChallenge16.png)
+[Kary FizzBuzz WhiteBoard](CodeChallenge18.png)
 
 ## API
 <!-- Description of each method publicly available to your Linked List -->

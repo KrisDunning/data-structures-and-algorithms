@@ -2,21 +2,6 @@
 
 let {PseudoQ} = require ('./index');
 
-
-// let Q = new PseudoQ;
-// Q.Enqueue(5);
-// Q.Enqueue(3);
-// Q.Enqueue(12);
-// console.log(JSON.stringify(stack1));
-// console.log(Q.Dequeue());
-// console.log(stack1);
-// console.log(Q.Dequeue());
-// console.log(stack1);
-// console.log(Q.Dequeue());
-// console.log(stack1);
-// console.log(Q.Dequeue());
-// console.log(stack1);
-
 describe ('Pseudo Queue', ()=>{
 
   it('Can enqueue a value', ()=>{
@@ -34,6 +19,4 @@ describe ('Pseudo Queue', ()=>{
     expect(Q).toBeInstanceOf(PseudoQ);
     expect(Q.dequeue()).toBe(10);
   });
-
-
 });
