@@ -144,21 +144,23 @@ function fizzBuzzTree(tree) {
 function logTree(x) {
   console.log(x);
 }
-const newKTree = new BinaryTree();
-// console.log(newKTree);
-// console.log(newKTree.root);
-newKTree.root = new KaryNode(2, 3);
-newKTree.root.children.push(new KaryNode(5, 3));
-newKTree.root.children.push(new KaryNode(3, 3));
-newKTree.root.children.push(new KaryNode(15, 3));
-newKTree.root.children[0].children.push(new KaryNode(11, 3));
-newKTree.root.children[0].children.push(new KaryNode(12, 3));
-newKTree.root.children[0].children.push(new KaryNode(10, 3));
-newKTree.root.children[1].children.push(new KaryNode(17, 3));
-// console.log(newKTree);
-// console.log(fizzBuzzTree(newKTree))
-let fizzTree = fizzBuzzTree(newKTree);
-console.log('fizztree:',JSON.stringify(fizzTree));
-traverseKTree(fizzTree, logTree);
+
+
+// const newKTree = new BinaryTree();
+// // console.log(newKTree);
+// // console.log(newKTree.root);
+// newKTree.root = new KaryNode(2, 3);
+// newKTree.root.children.push(new KaryNode(5, 3));
+// newKTree.root.children.push(new KaryNode(3, 3));
+// newKTree.root.children.push(new KaryNode(15, 3));
+// newKTree.root.children[0].children.push(new KaryNode(11, 3));
+// newKTree.root.children[0].children.push(new KaryNode(12, 3));
+// newKTree.root.children[0].children.push(new KaryNode(10, 3));
+// newKTree.root.children[1].children.push(new KaryNode(17, 3));
+// // console.log(newKTree);
+// // console.log(fizzBuzzTree(newKTree))
+// let fizzTree = fizzBuzzTree(newKTree);
+// console.log('fizztree:',JSON.stringify(fizzTree));
+// traverseKTree(fizzTree, logTree);
 
 module.exports = { Node, BinaryTree, BST };
