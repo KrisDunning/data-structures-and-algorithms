@@ -15,6 +15,7 @@ Returns: The added node
 Add a node to the graph
 
 ### add edge
+
 Arguments: 2 nodes to be connected by the edge, weight (optional)
 Returns: nothing
 Adds a new edge between two nodes in the graph
@@ -42,10 +43,17 @@ Returns the total number of nodes in the graph
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-Space : O(n) - space directly related to number if words in the input string.
-Time : O(1) - map data structure utilizes O(1) lookup
+Space : O(n) - the size of the storage is dependent on how many items are added to the graph
+Time : O(n) - the slowest operations are the array operations which equate to an O(n).
 
 ## API
 <!-- Description of each method publicly available in each of your hashtable -->
 
-in the hashmapRepeatedWords.js file. Simply call the repeatedWords function and pass in a string of words. Will either return the first instance of a repeated word, or 'No repeated words'.
+- Download directory.
+- Import `GraphImplementation` class from graph.js.
+- Declare a variable and assign a new `GraphImplementation` (`ex.const graph = new GraphImplementation();`)
+- `addNode(value)` -  Class method that adds a node to the graph
+- `addEdge(node1,node2,weight(optional))` - Method that adds a directional edge from node1 to node2 with an optional weight(defaults to 0)
+- `getNodes()` - returns an iterable of nodes in the graph
+- `getNeighbors(node)` - returns a collection of edges connected to node
+- `size()` - returns integer value of number of nodes in the graph
