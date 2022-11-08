@@ -41,6 +41,12 @@ Arguments: none
 Returns the total number of nodes in the graph
 0 if there are none
 
+### breadth first
+
+Arguments: Node
+Return: A collection of nodes in the order they were visited.
+Display the collection
+
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 Space : O(n) - the size of the storage is dependent on how many items are added to the graph
@@ -57,3 +63,4 @@ Time : O(n) - the slowest operations are the array operations which equate to an
 - `getNodes()` - returns an iterable of nodes in the graph
 - `getNeighbors(node)` - returns a collection of edges connected to node
 - `size()` - returns integer value of number of nodes in the graph
+- `breadthFirst(rootNode)` - Method used to return array of node values in a breadth first traversal manner
