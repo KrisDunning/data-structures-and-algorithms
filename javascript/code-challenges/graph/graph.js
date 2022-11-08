@@ -32,7 +32,6 @@ class GraphImplementation {
   getNodes() {
     //return all nodes in the graph in a collection
     return this.adjacencyList.keys();
-
   }
   getNeighbors(node) {
     //return a collection of edges connected to the given node
@@ -43,6 +42,31 @@ class GraphImplementation {
     return this.adjacencyList.size;
   }
 
+  breadthFirst(firstNode) {
+    // declare a visited set(unique values)
+    let visited = new Set();
+    //assign the first node to the queue
+    let queue = [firstNode];
+
+    while (queue.length > 0) {
+      let current = queue.pop();
+      visited.add(current.value);
+      // assign the list of neighbors to a queue(FIFO)
+      let neighbors = this.getNeighbors(current);
+      neighbors.forEach(neighbor => {
+        // if neighbor has not been visited already then visit
+        if (!visited.has(neighbor.node.value)) {
+          // add neigbors to visited array when visiting
+          queue.unshift(neighbor.node);
+          visited.add(neighbor.node.value);
+        }
+      });
+      // current = queue.pop();
+    }
+    //return set values
+    return[...visited];
+  }
+
 }
 
-module.exports={GraphImplementation,Node,Edge};
+module.exports = { GraphImplementation, Node, Edge };
