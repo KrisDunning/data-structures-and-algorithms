@@ -47,6 +47,11 @@ Arguments: Node
 Return: A collection of nodes in the order they were visited.
 Display the collection
 
+### business trip
+
+Arguments: graph, array of city nodes
+Return: the cost of the trip (if possible) or null (if not)
+
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 Space : O(n) - the size of the storage is dependent on how many items are added to the graph
@@ -64,3 +69,4 @@ Time : O(n) - the slowest operations are the array operations which equate to an
 - `getNeighbors(node)` - returns a collection of edges connected to node
 - `size()` - returns integer value of number of nodes in the graph
 - `breadthFirst(rootNode)` - Method used to return array of node values in a breadth first traversal manner
+- `businessTrip(graph,[city1,city2]`) - Method to determine cost of travel(edge weight) between two "cities"(nodes) on a graph
