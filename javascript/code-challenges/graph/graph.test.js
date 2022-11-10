@@ -1,5 +1,5 @@
 'use strict';
-const { GraphImplementation} = require('./graph');
+const { GraphImplementation } = require('./graph');
 
 describe(' Graph Implementation', () => {
 
@@ -112,7 +112,43 @@ describe(' Graph Implementation', () => {
 
     expect(graph.businessTrip(graph, [metroville, pandora])).toBe(82);
     expect(graph.businessTrip(graph, [naboo, pandora])).toBe(null);
-    expect(graph.businessTrip(graph, [arendelle,monstropolis,naboo])).toBe(115);
+    expect(graph.businessTrip(graph, [arendelle, monstropolis, naboo])).toBe(115);
+  });
+  it('Can properly return a array of values from a graph in a depth first manner', () => {
+    const graph = new GraphImplementation();
+    const a = graph.addNode('A');
+    const b = graph.addNode('B');
+    const c = graph.addNode('C');
+    const d = graph.addNode('D');
+    const e = graph.addNode('E');
+    const f = graph.addNode('F');
+    const g = graph.addNode('G');
+    const h = graph.addNode('H');
+
+    graph.addEdge(a, d);
+    graph.addEdge(a, b);
+    graph.addEdge(b, a);
+    graph.addEdge(b, c);
+    graph.addEdge(b, d);
+    graph.addEdge(c, b);
+    graph.addEdge(c, g);
+    graph.addEdge(d, a);
+    graph.addEdge(d, b);
+    graph.addEdge(d, e);
+    graph.addEdge(d, f);
+    graph.addEdge(d, h);
+    graph.addEdge(e, d);
+    graph.addEdge(f, d);
+    graph.addEdge(f, h);
+    graph.addEdge(g, c);
+    graph.addEdge(h, d);
+    graph.addEdge(h, f);
+
+    expect(graph.depthFirst(a)).toStrictEqual([
+      'A', 'B', 'C',
+      'G', 'D', 'H',
+      'F', 'E'
+    ]);
   });
 });
 

@@ -45,7 +45,11 @@ Returns the total number of nodes in the graph
 
 Arguments: Node
 Return: A collection of nodes in the order they were visited.
-Display the collection
+
+### depth first
+
+Arguments: Node (Starting point of search)
+Return: A collection of nodes in their pre-order depth-first traversal order
 
 ### business trip
 
@@ -69,4 +73,5 @@ Time : O(n) - the slowest operations are the array operations which equate to an
 - `getNeighbors(node)` - returns a collection of edges connected to node
 - `size()` - returns integer value of number of nodes in the graph
 - `breadthFirst(rootNode)` - Method used to return array of node values in a breadth first traversal manner
+- `depthFirst(rootNode)` - Method to return array of node values in a depth first manner
 - `businessTrip(graph,[city1,city2]`) - Method to determine cost of travel(edge weight) between two "cities"(nodes) on a graph
