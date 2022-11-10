@@ -1,4 +1,5 @@
 'use strict';
+let {Stack} = require ('../stack-and-queue');
 
 class Node {
   constructor(value) {
@@ -67,6 +68,31 @@ class GraphImplementation {
     return [...visited];
   }
 
+  depthFirst(rootNode){
+    let depthStack = new Stack();
+    let visited = new Set();
+    let addedToStack = new Set();
+    let returnValues=[];
+    depthStack.push(rootNode);
+    while (!depthStack.isEmpty()){
+      let current=depthStack.pop();
+      let currentNeighbors=this.getNeighbors(current);
+      if(currentNeighbors){
+        currentNeighbors.forEach(neighbor=>{
+          if(!visited.has(neighbor.node.value) && !addedToStack.has(neighbor.node.value)){
+            depthStack.push(neighbor.node);
+            addedToStack.add(neighbor.node.value);
+          }
+        });
+      }
+      returnValues.push(current.value);
+      visited.add(current.value);
+    }
+    return returnValues;
+  }
+
+
+
   businessTrip(graph, destinations) {
     let sumofWeight = 0;
     if (destinations.length < 2) return null;
@@ -86,40 +112,37 @@ class GraphImplementation {
 
 }
 
-const graph = new GraphImplementation();
-const pandora = graph.addNode('Pandora');
-const arendelle = graph.addNode('Arendelle');
-const metroville = graph.addNode('Metroville');
-const monstropolis = graph.addNode('Monstropolis');
-const narnia = graph.addNode('Narnia');
-const naboo = graph.addNode('Naboo');
-graph.addEdge(pandora, arendelle, 150);
-graph.addEdge(arendelle, metroville, 99);
-graph.addEdge(arendelle, monstropolis, 42);
-graph.addEdge(arendelle, pandora, 150);
-graph.addEdge(metroville, arendelle, 99);
-graph.addEdge(metroville, monstropolis, 105);
-graph.addEdge(metroville, narnia, 37);
-graph.addEdge(metroville, naboo, 26);
-graph.addEdge(metroville, pandora, 82);
-graph.addEdge(monstropolis, arendelle, 42);
-graph.addEdge(monstropolis, metroville, 105);
-graph.addEdge(monstropolis, naboo, 73);
-graph.addEdge(narnia, metroville, 37);
-graph.addEdge(narnia, naboo, 250);
-graph.addEdge(naboo, metroville, 26);
-graph.addEdge(naboo, narnia, 250);
-graph.addEdge(naboo, monstropolis, 73);
+// const graph = new GraphImplementation();
+// const a = graph.addNode('A');
+// const b = graph.addNode('B');
+// const c = graph.addNode('C');
+// const d = graph.addNode('D');
+// const e = graph.addNode('E');
+// const f = graph.addNode('F');
+// const g = graph.addNode('G');
+// const h = graph.addNode('H');
 
-//let allNodes=graph.getNodes();
-//console.log(allNodes);
+// graph.addEdge(a, d);
+// graph.addEdge(a, b);
+// graph.addEdge(b, a);
+// graph.addEdge(b, c);
+// graph.addEdge(b, d);
+// graph.addEdge(c, b);
+// graph.addEdge(c, g);
+// graph.addEdge(d, a);
+// graph.addEdge(d, b);
+// graph.addEdge(d, e);
+// graph.addEdge(d, f);
+// graph.addEdge(d, h);
+// graph.addEdge(e, d);
+// graph.addEdge(f, d);
+// graph.addEdge(f, h);
+// graph.addEdge(g, c);
+// graph.addEdge(h, d);
+// graph.addEdge(h, f);
 
-// allNodes.forEach(node=>{
-//   console.log(`Neighbors of ${node.value} : `,graph.getNeighbors(node));
-// });
 
-console.log('Returned weight : ',graph.businessTrip(graph, [metroville, pandora]));
-console.log('Returned weight : ',graph.businessTrip(graph, [naboo, pandora]));
-console.log('Returned weight : ',graph.businessTrip(graph, [arendelle,monstropolis,naboo]));
+// console.log(graph.depthFirst(a));
+
 
 module.exports = { GraphImplementation, Node, Edge };
